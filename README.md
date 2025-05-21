@@ -1,4 +1,4 @@
-# Concurrent_Program
+
 #  Simulación Concurrente de Parque de Atracciones
 
 ## 1. Introducción
