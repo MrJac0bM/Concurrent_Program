@@ -134,11 +134,8 @@ Clientes en restaurante: 150
 ## 9. Bibliografía
 
 - Dijkstra, E. W. (1965). *Solution of a problem in concurrent programming control*. Communications of the ACM.  
-  - Fundamento teórico para la exclusión mutua mediante mutex.
 
 - Hoare, C. A. R. (1978). *Communicating sequential processes*. Communications of the ACM.  
-  - Base conceptual para la comunicación y sincronización entre procesos concurrentes.
-
 - Williams, A. (2019). *C++ Concurrency in Action* (2nd ed.). Manning Publications.  
-  - Guía práctica sobre programación concurrente moderna en C++ usando `std::thread`, `std::mutex` y RAII.
+
 
