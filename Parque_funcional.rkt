@@ -1,6 +1,5 @@
 #lang racket
 
-;; ================= FUNCIONES AUXILIARES =================
 
 ;; Muestra mensaje de entrada al parque según la cantidad de personas
 (define (mostrar-entrada entrada cantidad)
@@ -57,7 +56,6 @@
     [(string=? atraccion "Carrusel") 200]
     [else 0]))
 
-;; ================= FUNCIONES DE SIMULACIÓN =================
 
 ;; Simula una visita a una atracción para un grupo
 (define (procesar-visita-atraccion id cantidad)
@@ -81,7 +79,6 @@
   (procesar-tres-atracciones id cantidad 3)
   (displayln "Gracias por visitar nuestro Parque Jacobs Park"))
 
-;; ================= DATOS Y ESTADÍSTICAS =================
 
 ;; Lista de grupos: (id cantidad)
 (define grupos-visitantes
@@ -118,7 +115,6 @@
                      (quotient total (length grupos-visitantes))))
   (displayln "Accidentes: 4"))
 
-;; ================= EJECUCIÓN PRINCIPAL =================
 
 (define (simular-parque)
   (displayln "---- SIMULACIÓN DE JACOBS PARK ----")
