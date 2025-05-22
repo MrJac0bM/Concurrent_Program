@@ -125,6 +125,112 @@ Por Grupo:
 - Dijkstra, E. W. (1965). *Solution of a problem in concurrent programming control*. Communications of the ACM.  
 
 - Hoare, C. A. R. (1978). *Communicating sequential processes*. Communications of the ACM.  
-- Williams, A. (2019). *C++ Concurrency in Action* (2nd ed.). Manning Publications.  
+- Williams, A. (2019). *C++ Concurrency in Action* (2nd ed.). Manning Publications.
 
 
+
+# Simulación de Parque de Atracciones en Racket
+
+Este sistema simula el funcionamiento de un parque de atracciones utilizando **programación funcional pura en Racket**. A diferencia del modelo concurrente en C++, esta implementación resuelve el problema mediante:
+
+- **Composición de funciones puras** (sin efectos secundarios).
+- **Recursión** para manejar flujos iterativos.
+- **Inmutabilidad de datos** (ningún estado es modificado).
+
+## Objetivos principales
+
+- **Seguridad**: Las atracciones nunca exceden su capacidad (validación estática).
+- **Determinismo**: Misma entrada → misma salida siempre.
+- **Simplicidad**: Evitar complejidad de sincronización.
+
+##  Paradigma Funcional
+
+### Principios Clave
+
+- **Inmutabilidad**:
+
+```racket
+(define grupos-visitantes '((7 6) (8 14) ...)) ;; Lista fija
+```
+- **Inmutabilidad**:
+  ``` racket
+  (define (procesar-grupos lista)
+  (when (not (null? lista))
+    (procesar-grupo (car lista))
+    (procesar-grupos (cdr lista))))
+  ```
+- **Funciones puras**:
+  ``` racket
+  (define (obtener-capacidad atraccion) ;; Sin efectos secundarios
+  (cond [(string=? atraccion "Restaurante") 15]
+        ...))
+  ```
+
+  ###  Ventajas del Enfoque
+  - **Transparencia referencial**: Las funciones siempre producen el mismo resultado para los mismos inputs.
+  - **Ausencia de estados compartidos**: Elimina riesgos de condiciones de carrera.
+  - **Facilidad de prueba**: Flujo completamente determinista.
+
+##  Complejidad Computacional
+
+###  Análisis Temporal
+
+- **Por grupo**:
+  - Entrada: O(1)
+  - Atracciones: O(3) → 3 visitas fijas
+
+- **Total**: O(n) para *n* grupos (procesamiento secuencial)
+
+### Análisis Espacial
+
+- **Memoria**:
+  - Lista de grupos: O(n)
+  - Pila de recursión: O(n) (máxima profundidad = número de grupos)
+
+
+## Pruebas y Validación
+
+### Casos de Prueba
+
+- **Grupo excede capacidad**:
+
+```racket
+(visitar-atraccion "Restaurante" 15 20) 
+;; Salida esperada: "Entraron 15 personas (capacidad máxima)"
+
+```
+
+- **Entrada saturada**:
+```racket
+(mostrar-entrada "Sur" 35) 
+;; Salida esperada: "El número de personas: 35 supera la capacidad..."
+```
+
+### Métricas de Validación
+- **Total atendidos**: Suma de todos los grupos procesados.
+- **Consistencia**: Mismas entradas generan mismas salidas.
+
+## Comparación Paradigmas
+
+| Aspecto             | Versión Funcional (Racket) | Versión Concurrente (C++)        |
+|---------------------|-----------------------------|-----------------------------------|
+| **Estado**          | Inmutable                   | Mutable                           |
+| **Orden de ejecución** | Determinista             | No determinista                   |
+| **Paralelismo**     | Secuencial                  | Simultaneo                         |
+| **Gestión de errores** | Validación estática      | En tiempo de ejecución             |
+| **Complejidad**     | Lineal O(n)                 | Paralela O(m·n)                   |
+
+
+
+
+
+## Bibliografía Funcional
+
+- **Abelson, H.** (1996). *Structure and Interpretation of Computer Programs*. MIT Press.  
+  *Fundamentos de programación funcional.*
+
+- **Felleisen, M.** (2018). *A Programmer's Guide to Racket*.  
+  *Estilo y mejores prácticas en Racket.*
+
+- **Hughes, J.** (1989). *Why Functional Programming Matters*.  
+  *Ventajas de la composición funcional.*
