@@ -78,7 +78,8 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
 - **Encapsulamiento**: Cada atracción maneja su propia lógica interna.
 
 ## UML 
-![image](https://github.com/user-attachments/assets/c6a7bb4d-2df3-4c71-bae5-fe00bb13782b)
+![image](https://github.com/user-attachments/assets/c6410a56-23fd-4bb4-bd8a-3681e5c6dc90)
+
 
 
 ## 5. Complejidad Computacional
