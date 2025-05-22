@@ -1,7 +1,7 @@
 
 #  Simulación Concurrente de Parque de Atracciones
 
-## 1. Introducción
+## Introducción
 
 Este sistema simula el funcionamiento concurrente de un parque de atracciones donde múltiples grupos de visitantes acceden a diferentes atracciones de forma simultánea. El objetivo es gestionar de forma correcta el funcionamiento del sistema
 
@@ -13,13 +13,28 @@ El modelo utiliza programación concurrente en C++ con hilos, mutex y colas de e
 
 - Condiciones de carrera  
 - Sincronización entre procesos  
-- Gestión de recursos compartidos  
+- Gestión de recursos compartidos
+
+## Paradigma de Concurrencia
+
+El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** donde:
+
+- Cada **grupo de visitantes** es un **hilo independiente** que ejecuta su flujo.
+
+- Las **atracciones** son recursos compartidos protegidos por mecanismos de sincronización:
+
+  - **Mutex (`std::mutex`)**:  
+    Garantizan exclusión mutua al modificar estados compartidos (por ejemplo, contadores de capacidad).
+
+  - **Colas de espera (`std::queue`)**:  
+    Implementan política de espera ordenada para grupos en atracciones llenas.
+
 
 ---
 
-## 2. Estructura General del Sistema
+##  Estructura General del Sistema
 
-### 2.1 Componentes Principales
+###  Componentes Principales
 
 - **Entradas**: Dos accesos al parque con capacidades distintas.  
 - **Atracciones**:
@@ -29,7 +44,7 @@ El modelo utiliza programación concurrente en C++ con hilos, mutex y colas de e
   -  Restaurante (capacidad: 15 personas)  
 - **Grupos de Visitantes**: Representados como hilos que realizan 3 actividades aleatorias.
 
-### 2.2 Flujo de Operación
+###  Flujo de Operación
 
 1. Los grupos llegan al parque y eligen una entrada aleatoria.  
 2. Visitan 3 atracciones en orden aleatorio.  
@@ -37,16 +52,16 @@ El modelo utiliza programación concurrente en C++ con hilos, mutex y colas de e
 
 ---
 
-## 3. Paradigma de Concurrencia
+##  Paradigma de Concurrencia
 
-### 3.1 Modelo Basado en Mutex y Colas
+###  Modelo Basado en Mutex y Colas
 
 - **Mutex**: Protegen el acceso a variables compartidas (contadores, colas).
 - **Colas de Espera**: Almacenan grupos que no pueden entrar inmediatamente.
 - **Hilos Independientes**: Cada grupo es un hilo paralelo con lógica propia.
 
 
-### 3.2 Políticas Clave
+###  Políticas Clave
 
 - **Gestión de Grupos Grandes**:  
   Si un grupo excede la capacidad de una atracción, se divide en lotes.    
@@ -54,28 +69,18 @@ El modelo utiliza programación concurrente en C++ con hilos, mutex y colas de e
 
 ---
 
-## 4.  Prácticas Implementadas
+##  Prácticas Implementadas
 
-### 4.1 Seguridad en Concurrencia
+###  Seguridad en Concurrencia
 
 - **RAII para Mutex**: Uso de unique_lock para liberar automáticamente.
 - **Variables Atómicas**: Protegen contadores de accesos simultáneos.
 - **Encapsulamiento**: Cada atracción maneja su propia lógica interna.
-
-### 4.2 Eficiencia
-
-- **Tiempos de Simulación**:
-  - Restaurante: 700 ms
-  - Montana Rusa: 100 ms
-
-- **Desbloqueo durante esperas**:  
-  Los hilos liberan mutex mientras duermen (sleep_for).
-
 ---
 
 ## 5. Complejidad Computacional
 
-### 5.1 Tiempo
+###  Tiempo
 
 Por Grupo:
 
@@ -85,18 +90,18 @@ Por Grupo:
 
 **Total**: O(m * n) para m grupos y n atracciones
 
-### 5.2 Espacio
+###  Espacio
 
-- **Hilos**: 1 por grupo (ejemplo: 20 grupos → 20 hilos)
-- **Colas**: Dependen de los grupos en espera 
+- **Hilos**: O(n) 1 por grupo (ejemplo: 20 grupos → 20 hilos)
+- **Colas**: O(n) Dependen de los grupos en espera 
 
 ---
 
 
 
-## 7. Pruebas y Validación
+## Pruebas y Validación
 
-### 7.1 Casos de Prueba
+### Casos de Prueba
 
 - **Grupo Excede Capacidad**  
   Enviar grupo de 20 al Restaurante (capacidad 15)  
@@ -107,31 +112,15 @@ Por Grupo:
   10 grupos acceden simultáneamente a Montana Rusa  
   Resultado : 15 personas en la atracción
 
-### 7.2 Métricas de Validación
+###  Métricas de Validación
 
 - Total atendidos = Suma de todos los grupos   
 - Restantes en colas = 0 al finalizar
 
----
-
-## 8. Resultados y Estadísticas
-
-### 8.1 Ejecución de Ejemplo
-
----- SIMULACIÓN DE JACOBS PARK ----  
-Grupo 7 entra por Entrada Norte  
-Grupo de 6 quiere entrar a Montana Rusa  
-Salieron 6 personas de Montana Rusa  
-...  
----- ESTADÍSTICAS FINALES ----  
-Visitantes totales atendidos: 450  
-Clientes en restaurante: 150  
 
 
----
 
-
-## 9. Bibliografía
+##  Bibliografía
 
 - Dijkstra, E. W. (1965). *Solution of a problem in concurrent programming control*. Communications of the ACM.  
 
