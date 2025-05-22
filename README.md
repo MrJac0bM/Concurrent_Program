@@ -50,7 +50,7 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
 2. Visitan 3 atracciones en orden aleatorio.  
 3. Si una atracción está llena, esperan en cola hasta que haya espacio.
 
----
+
 
 ##  Paradigma de Concurrencia
 
@@ -67,7 +67,7 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
   Si un grupo excede la capacidad de una atracción, se divide en lotes.    
   Los primeros en llegar son los primeros en ser atendidos.
 
----
+
 
 ##  Prácticas Implementadas
 
@@ -76,7 +76,10 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
 - **RAII para Mutex**: Uso de unique_lock para liberar automáticamente.
 - **Variables Atómicas**: Protegen contadores de accesos simultáneos.
 - **Encapsulamiento**: Cada atracción maneja su propia lógica interna.
----
+
+## UML 
+![image](https://github.com/user-attachments/assets/c6a7bb4d-2df3-4c71-bae5-fe00bb13782b)
+
 
 ## 5. Complejidad Computacional
 
@@ -95,7 +98,7 @@ Por Grupo:
 - **Hilos**: O(n) 1 por grupo (ejemplo: 20 grupos → 20 hilos)
 - **Colas**: O(n) Dependen de los grupos en espera 
 
----
+
 
 
 
