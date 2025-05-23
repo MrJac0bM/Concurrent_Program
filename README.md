@@ -52,21 +52,6 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
 
 
 
-##  Paradigma de Concurrencia
-
-###  Modelo Basado en Mutex y Colas
-
-- **Mutex**: Protegen el acceso a variables compartidas (contadores, colas).
-- **Colas de Espera**: Almacenan grupos que no pueden entrar inmediatamente.
-- **Hilos Independientes**: Cada grupo es un hilo paralelo con lógica propia.
-
-
-###  Políticas Clave
-
-- **Gestión de Grupos Grandes**:  
-  Si un grupo excede la capacidad de una atracción, se divide en lotes.    
-  Los primeros en llegar son los primeros en ser atendidos.
-
 
 
 ##  Prácticas Implementadas
