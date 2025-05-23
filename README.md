@@ -77,6 +77,11 @@ El sistema sigue un modelo de concurrencia mediante **hilos (multi-threading)** 
 - **Variables Atómicas**: Protegen contadores de accesos simultáneos.
 - **Encapsulamiento**: Cada atracción maneja su propia lógica interna.
 
+
+## Diagrama de concurrencia del flujo de grupos en el parque temático
+![image](https://github.com/user-attachments/assets/dff4e075-45ab-4ec0-878a-9ef20c65bbe6)
+
+
 ## UML 
 ![image](https://github.com/user-attachments/assets/c6410a56-23fd-4bb4-bd8a-3681e5c6dc90)
 
@@ -222,7 +227,7 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 | **Orden de ejecución** | Determinista             | No determinista                   |
 | **Paralelismo**     | Secuencial                  | Simultaneo                         |
 | **Gestión de errores** | Validación estática      | En tiempo de ejecución             |
-| **Complejidad**     | Lineal O(n)                 | Paralela O(m·n)                   |
+| **Complejidad**     | Lineal O(n)                 | Concurrente O(m·n)                   |
 
 
 
