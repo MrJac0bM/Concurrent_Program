@@ -186,19 +186,46 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 
 ### Casos de Prueba
 
-- **Grupo excede capacidad**:
+# Casos de Prueba
 
-```racket
-(visitar-atraccion "Restaurante" 15 20) 
-;; Salida esperada: "Entraron 15 personas (capacidad máxima)"
+## 1. Acceso concurrente a una atracción con capacidad limitada
+- **Configuración:** 10 visitantes, 1 atracción (Montaña Rusa, capacidad 1)  
+- **Esperado:** Solo un visitante entra a la vez; los demás esperan su turno.  
+- **Validación:** No hay condiciones de carrera ni superposición de accesos.
+- 
 
-```
+---
 
-- **Entrada saturada**:
-```racket
-(mostrar-entrada "Sur" 35) 
-;; Salida esperada: "El número de personas: 35 supera la capacidad..."
-```
+## 2. Exceso de visitantes sobre la capacidad total
+- **Configuración:** 50 visitantes, 2 atracciones (Casa del Terror, Martillo, ambas con capacidad 1)  
+- **Esperado:** Las atracciones procesan a todos los visitantes uno por uno, sin bloqueos.  
+- **Validación:** Todos los hilos completan su ejecución sin errores ni bloqueos.
+
+  ![image](https://github.com/user-attachments/assets/e873fff9-43ad-4120-ac77-83b3ac3e2ce2)
+
+
+---
+
+## 3. Duraciones distintas por atracción
+- **Configuración:** Montaña Rusa (3s), Restaurante (5s), 6 visitantes  
+- **Esperado:** Las atracciones gestionan tiempos correctamente; los visitantes salen según su duración.  
+
+---
+
+## 4. Distribución balanceada entre múltiples atracciones
+- **Configuración:** 12 visitantes, 3 atracciones (Montaña Rusa, Martillo, Restaurante)  
+- **Esperado:** Los visitantes se distribuyen entre atracciones sin colisiones.  
+- **Validación:** Se observa concurrencia efectiva y sin conflicto en el acceso.
+
+---
+
+## 5. Terminación limpia del sistema
+- **Configuración:** 20 visitantes, 3 atracciones  
+- **Esperado:** Todos los hilos finalizan correctamente.  
+- **Validación:** No se detectan hilos colgados, ni fugas de memoria.
+![image](https://github.com/user-attachments/assets/a0fdeacb-06b0-4ca4-a760-a759ccc6808f)
+
+
 
 ### Métricas de Validación
 - **Total atendidos**: Suma de todos los grupos procesados.
