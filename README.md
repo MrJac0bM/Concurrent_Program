@@ -192,7 +192,8 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 - **Configuración:** 10 visitantes, 1 atracción (Montaña Rusa, capacidad 1)  
 - **Esperado:** Solo un visitante entra a la vez; los demás esperan su turno.  
 - **Validación:** No hay condiciones de carrera ni superposición de accesos.
-- 
+  ![image](https://github.com/user-attachments/assets/d658b7ef-2918-4860-b77d-01dcd0768058)
+
 
 ---
 
