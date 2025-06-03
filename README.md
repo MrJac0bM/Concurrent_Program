@@ -168,14 +168,19 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 ```
 - **Inmutabilidad**:
   ``` racket
-  (define (procesar-grupos lista)
-  (when (not (null? lista))
-    (procesar-grupo (car lista))
-    (procesar-grupos (cdr lista))))
+  (define (procesar-grupos lista-grupos)
+  (cond
+    [(null? lista-grupos)
+     (displayln "\nTodos los grupos han sido procesados")]
+    [else
+     (match (car lista-grupos)
+       [(list id cantidad)
+        (procesar-grupo id cantidad)
+        (procesar-grupos (cdr lista-grupos))])]))
   ```
 - **Funciones puras**:
   ``` racket
-  (define (obtener-capacidad atraccion) ;; Sin efectos secundarios
+  (define (obtener-capacidad atraccion) 
   (cond [(string=? atraccion "Restaurante") 15]
         ...))
   ```
