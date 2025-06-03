@@ -196,7 +196,7 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 
 - **Por grupo**:
   - Entrada: O(1)
-  - Atracciones: O(3) → 3 visitas fijas
+  -a Atracciones: O(3) → 3 visitas fijas
 
 - **Total**: O(n) para *n* grupos (procesamiento secuencial)
 
@@ -207,7 +207,41 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
   - Pila de recursión: O(n) (máxima profundidad = número de grupos)
 
 
+## Pruebas y Validación
 
+### Casos de Prueba
+
+---
+
+### 1. Entrada con exceso de personas  
+- **Configuración:** Grupo con 35 personas entra por la entrada Norte.  
+- **Esperado:** Se muestra mensaje de sobrecapacidad.  
+
+---
+
+### 2. Entrada permitida  
+- **Configuración:** Grupo con 10 personas entra por la entrada Sur.  
+- **Esperado:** Se muestra mensaje de bienvenida.  
+- **Validación:**  
+
+---
+
+### 3. Grupo demasiado grande para el restaurante  
+- **Configuración:** Grupo de 25 personas quiere entrar al Restaurante (capacidad 15).  
+- **Esperado:** Rechazo completo.  
+
+---
+
+### 4. Grupo excede capacidad de atracción  
+- **Configuración:** Grupo de 20 personas entra a Martillo (capacidad 10).  
+- **Esperado:** Solo entran 10.  
+---
+
+### 5. Simulación completa  
+- **Configuración:** Procesamiento de todos los grupos predefinidos.  
+- **Esperado:** Se muestra entrada, atracciones y estadísticas finales.  
+
+---
 
 
 
