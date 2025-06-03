@@ -214,34 +214,45 @@ Este sistema simula el funcionamiento de un parque de atracciones utilizando **p
 ---
 
 ### 1. Entrada con exceso de personas  
-- **Configuración:** Grupo con 35 personas entra por la entrada Norte.  
-- **Esperado:** Se muestra mensaje de sobrecapacidad.  
+- **Configuración:** Grupo con 21 personas entra por la entrada Norte.  
+- **Esperado:** Se muestra mensaje de aceptación.
+
+![image](https://github.com/user-attachments/assets/034c4ce1-7e4e-40e8-a269-089732bdc2ac)
+
 
 ---
 
 ### 2. Entrada permitida  
 - **Configuración:** Grupo con 10 personas entra por la entrada Sur.  
 - **Esperado:** Se muestra mensaje de bienvenida.  
-- **Validación:**  
+- **Validación:**
+![image](https://github.com/user-attachments/assets/84c2040a-55b1-40eb-9cf1-2722d66718c8)
+
 
 ---
 
 ### 3. Grupo demasiado grande para el restaurante  
-- **Configuración:** Grupo de 25 personas quiere entrar al Restaurante (capacidad 15).  
-- **Esperado:** Rechazo completo.  
+- **Configuración:** Grupo de 30 personas quiere entrar al Restaurante (capacidad 15).  
+- **Esperado:** Rechazo completo.
+![image](https://github.com/user-attachments/assets/9eeba25f-0f04-4563-852d-726311805fc0)
+
 
 ---
 
 ### 4. Grupo excede capacidad de atracción  
-- **Configuración:** Grupo de 20 personas entra a Martillo (capacidad 10).  
-- **Esperado:** Solo entran 10.  
+- **Configuración:** Grupo de 18 personas entra a Martillo (capacidad 10).  
+- **Esperado:** Solo entran 10.
+![image](https://github.com/user-attachments/assets/925d5055-908f-4d72-8eef-f7801a26daaf)
+
 ---
 
 ### 5. Simulación completa  
 - **Configuración:** Procesamiento de todos los grupos predefinidos.  
 - **Esperado:** Se muestra entrada, atracciones y estadísticas finales.  
+![image](https://github.com/user-attachments/assets/28931938-96f7-448e-85f1-b5a1ac2302ca)
 
 ---
+
 
 
 
